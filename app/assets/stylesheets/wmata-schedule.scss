@@ -54,6 +54,7 @@
   .navigation {
     text-align: center;
   }
+
   .nav-btn {
     @include margin(null 0.25em null 0.25em);
     color: #fff;
@@ -62,6 +63,10 @@
       color: $dark-gray;
       background: lighten($light-gray, 5%);
     }
+  }
+
+  .header {
+    margin-bottom: 0;
   }
 
   .OR {

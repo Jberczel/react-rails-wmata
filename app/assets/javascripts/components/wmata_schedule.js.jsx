@@ -33,6 +33,7 @@ var FilterOptions = React.createClass({
     return (
       <div className="navigation">
         <h2 className="header">DC Metro Lines</h2>
+        <p>Live updates every 20 seconds</p>
           {line_buttons}
       </div>
     );
