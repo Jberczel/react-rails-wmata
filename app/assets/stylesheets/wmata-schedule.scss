@@ -2,6 +2,24 @@
   @include span-columns(6);
   @include shift(3);
 
+  //responsive sizing for tablet and mobile
+  @include media($tablet) {
+    @include span-columns(6);
+    @include shift(1);
+  }
+  @include media($mobile) {
+    @include span-columns(4);
+    margin: 0;
+  }
+
+  background: #fff;
+  padding: 1em;
+
+  @include border-top-radius(5px);
+  @include border-right-radius(5px);
+  @include border-bottom-radius(5px);
+  @include border-left-radius(5px);
+
   td.line {
     width: 2em;
   }
@@ -12,10 +30,17 @@
     font-weight: bold;
   }
 
+  td.destination, th.destination {
+    padding-right: 1em;
+  }
 
   td.minutes, th.minutes {
     font-weight: bold;
     text-align: right;
+  }
+
+  td.minutes { 
+    font-size: 1.1em;
   }
 
   .close-train {
