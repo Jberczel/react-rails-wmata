@@ -121,6 +121,7 @@ var WmataSchedule = React.createClass({
         this.setState({data: this.sortTrainData(data["Trains"])});
       }.bind(this),
       error: function(xhr, status, err) {
+        alert("Sorry, WMATA quota exceeded!");
         console.error(url, status, err.toString());
       }.bind(this)
     });
