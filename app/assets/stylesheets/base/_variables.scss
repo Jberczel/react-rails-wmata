@@ -4,6 +4,7 @@ $heading-font-family: $base-font-family;
 
 // Font Sizes
 $base-font-size: 1em;
+$small-font-size: 0.8em;
 
 // Line height
 $base-line-height: 1.5;
@@ -13,6 +14,7 @@ $heading-line-height: 1.2;
 $base-border-radius: 3px;
 $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
+$extra-small-spacing: $small-spacing / 2;
 $base-z-index: 0;
 
 // Colors
@@ -20,6 +22,12 @@ $blue: #477dca;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
+$orange: #FE7D19;
+$blue: #095BA6;
+$red: #FD1813;
+$green: #018240;
+$silver:#A6A6A6;
+$yellow: #FFE912;
 
 // Font Colors
 $base-background-color: #fff;
