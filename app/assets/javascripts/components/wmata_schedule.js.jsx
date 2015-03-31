@@ -31,7 +31,7 @@ var FilterOptions = React.createClass({
 
     return (
       <div className="navigation">
-        <div className="header">DC Metro Lines</div>
+        <h2 className="header">DC Metro Lines</h2>
           {line_buttons}
       </div>
     );
