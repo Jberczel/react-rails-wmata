@@ -44,11 +44,13 @@ group :development, :test do
   gem 'spring'
 end
 
-
 gem 'react-rails', github: 'reactjs/react-rails'
 
 gem 'haml'
+
 gem 'neat'
+
+gem 'puma'
 
 gem 'rails_12factor', group: :production
 
