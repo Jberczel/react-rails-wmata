@@ -44,3 +44,7 @@ group :development, :test do
 end
 
 gem 'react-rails', github: 'reactjs/react-rails'
+
+gem 'haml'
+gem 'neat'
+
