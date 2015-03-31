@@ -13,5 +13,5 @@ $medium-screen: em(800);
 $mobile: new-breakpoint(max-width 600px 4);
 $tablet: new-breakpoint(max-width 960px 8);
 
-
-$visual-grid: true;
+//only activate during development
+//$visual-grid: true;
