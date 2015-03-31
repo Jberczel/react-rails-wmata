@@ -1,14 +1,12 @@
 // wmata ojbect used to sort ajax request by stations (west to east / south to north)
 var WMATA = {
-   orange: ["K08", "K07", "K06", "K05", "K04", "K03", "K02", "K01", "C05", "C04", "C03", "C02", "C01", "D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D12", "D13"],
-     blue: ["J03", "J02", "C13", "C12", "C11", "C10", "C09", "C08", "C07", "C06", "C05", "C04", "C03", "C02", "C01", "D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "G01", "G02", "G03", "G04", "G05"],
-   yellow: ["C15", "C14", "C13", "C12", "C11", "C10", "C09", "C08", "C07", "F03", "F02", "F01", "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10"],
-   silver: ["N06", "N04", "N03", "N02", "N01", "K05", "K04", "K03", "K02", "K01", "C05", "C04", "C03", "C02", "C01", "D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "G01", "G02", "G03", "G04", "G05"],
-    green: ["F11", "F10", "F09", "F08", "F07", "F06", "F05", "F04", "F03", "F02", "F01", "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10"],
-      red: ["A15", "A14", "A13", "A12", "A11", "A10", "A09", "A08", "A07", "A06", "A05", "A04", "A03", "A02", "A01", "B01", "B02", "B03", "B35", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11"],
+   OR: ["K08", "K07", "K06", "K05", "K04", "K03", "K02", "K01", "C05", "C04", "C03", "C02", "C01", "D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D12", "D13"],
+   BL: ["J03", "J02", "C13", "C12", "C11", "C10", "C09", "C08", "C07", "C06", "C05", "C04", "C03", "C02", "C01", "D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "G01", "G02", "G03", "G04", "G05"],
+   YL: ["C15", "C14", "C13", "C12", "C11", "C10", "C09", "C08", "C07", "F03", "F02", "F01", "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10"],
+   SV: ["N06", "N04", "N03", "N02", "N01", "K05", "K04", "K03", "K02", "K01", "C05", "C04", "C03", "C02", "C01", "D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "G01", "G02", "G03", "G04", "G05"],
+   GR: ["F11", "F10", "F09", "F08", "F07", "F06", "F05", "F04", "F03", "F02", "F01", "E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10"],
+   RD: ["A15", "A14", "A13", "A12", "A11", "A10", "A09", "A08", "A07", "A06", "A05", "A04", "A03", "A02", "A01", "B01", "B02", "B03", "B35", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11"],
 };
-
-var ORDERED_STATIONS = { OR: WMATA.orange, BL: WMATA.blue, YL: WMATA.yellow, RD: WMATA.red, GR: WMATA.green, SV: WMATA.silver };
 
 var FilterButton = React.createClass({
   handleClick: function(e) {
@@ -98,7 +96,7 @@ var WmataSchedule = React.createClass({
 
   sortTrainData: function(data) {
     var lineColor = this.state.line,
-        stations  = ORDERED_STATIONS[lineColor];
+        stations  = WMATA[lineColor];
 
     data = data.filter(function(train) { return train["Line"] === lineColor });
 
@@ -113,7 +111,7 @@ var WmataSchedule = React.createClass({
   },
 
   loadTrainsFromServer: function() {
-    var lineString = ORDERED_STATIONS[this.state.line].join(",");
+    var lineString = WMATA[this.state.line].join(",");
     var url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/" + lineString + " ?api_key=kfgpmgvfgacx98de9q3xazww";
 
     $.ajax({
