@@ -17,4 +17,5 @@
 //= require react_ujs
 //= require components
 //= require moment
+//= require pace/pace
 //= require_tree .

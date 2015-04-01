@@ -58,4 +58,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'momentjs-rails'
 
+# page loading bar
+gem 'pace-rails'
+
 ruby "2.2.0"
