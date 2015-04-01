@@ -31,6 +31,7 @@ var FilterOptions = React.createClass({
     return (
       <div className="navigation">
         <h2 className="header">DC Metro Lines</h2>
+        <p className="updated-time">Last Updated: {moment().format('MMMM Do, h:mm:ss a')}</p>
         <p>Live updates every 20 seconds</p>
           {line_buttons}
       </div>
@@ -121,7 +122,7 @@ var WmataSchedule = React.createClass({
         this.setState({data: this.sortTrainData(data["Trains"])});
       }.bind(this),
       error: function(xhr, status, err) {
-        alert("Sorry, WMATA quota exceeded!");
+        //alert("Sorry, WMATA quota exceeded!");
         console.error(url, status, err.toString());
       }.bind(this)
     });

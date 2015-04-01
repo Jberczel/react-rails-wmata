@@ -56,4 +56,6 @@ gem 'rails_12factor', group: :production
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'momentjs-rails'
+
 ruby "2.2.0"
