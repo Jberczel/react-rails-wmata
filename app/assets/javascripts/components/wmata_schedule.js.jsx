@@ -112,7 +112,7 @@ var WmataSchedule = React.createClass({
 
   loadTrainsFromServer: function() {
     var lineString = WMATA[this.state.line].join(",");
-    var url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/" + lineString + " ?api_key=kfgpmgvfgacx98de9q3xazww";
+    var url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/" + lineString + " ?api_key=" + this.props.api_key;
 
     $.ajax({
       url: url,

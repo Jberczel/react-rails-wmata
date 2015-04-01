@@ -54,4 +54,6 @@ gem 'puma'
 
 gem 'rails_12factor', group: :production
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 ruby "2.2.0"
