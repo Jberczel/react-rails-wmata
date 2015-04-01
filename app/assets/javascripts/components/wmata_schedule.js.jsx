@@ -60,7 +60,10 @@ var Train = React.createClass({
 
     return (
       <tr className="train">
-        <td className={"line " + this.props.line}></td>
+        <td className={"line " + this.props.line}>
+        { this.props.icon ? <i className='fa fa-circle fa-lg'/> : "" }
+        </td>
+
         <td className="station">{this.props.station}</td>
         <td className="destination">{this.props.destination}</td>
         <td className={minuteClasses}>{this.props.minutes}</td>
@@ -75,7 +78,7 @@ var TrainList = React.createClass({
     var lastStation = null;
     this.props.data.forEach(function(train) {
       if (train.LocationName !== lastStation) {
-        rows.push(<Train station={train.LocationName } line={train.Line} destination={train.Destination} minutes={train.Min} />);
+        rows.push(<Train icon={true} station={train.LocationName } line={train.Line} destination={train.Destination} minutes={train.Min} />);
         lastStation = train.LocationName;
       } else {
         rows.push(<Train station={""} line={train.Line} destination={train.Destination} minutes={train.Min} />);

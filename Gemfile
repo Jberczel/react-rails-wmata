@@ -61,4 +61,7 @@ gem 'momentjs-rails'
 # page loading bar
 gem 'pace-rails'
 
+# icons
+gem "font-awesome-rails";
+
 ruby "2.2.0"
