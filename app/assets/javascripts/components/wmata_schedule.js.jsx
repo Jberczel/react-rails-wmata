@@ -22,12 +22,10 @@ var FilterOptions = React.createClass({
   handleClick: function(line) {
     this.props.onUserInput(line);
   },
-
   render: function() {
     var line_buttons = this.props.buttons.map(function(line) {
       return <FilterButton onUserInput={this.handleClick} text={line} />
     }.bind(this));
-
     return (
       <div className="navigation">
         <h2 className="header">DC Metro Lines</h2>
@@ -40,16 +38,13 @@ var FilterOptions = React.createClass({
 });
 
 var Train = React.createClass({
-
   isArrivingBoarding: function() {
     return this.props.minutes === "ARR" ||
            this.props.minutes === "BRD";
   },
-
   isClose: function() {
     return parseInt(this.props.minutes) <= 3;
   },
-
   render: function() {
     var minuteClasses = "minutes";
     if (this.isArrivingBoarding()) {
@@ -57,13 +52,11 @@ var Train = React.createClass({
     } else {
       minuteClasses += this.isClose() ? " close-train" : " far-train";
     }
-
     return (
       <tr className="train">
         <td className={"line " + this.props.line}>
-        { this.props.icon ? <i className='fa fa-circle fa-lg'/> : "" }
+          { this.props.icon ? <i className='fa fa-circle fa-lg'/> : "" }
         </td>
-
         <td className="station">{this.props.station}</td>
         <td className="destination">{this.props.destination}</td>
         <td className={minuteClasses}>{this.props.minutes}</td>
@@ -84,7 +77,6 @@ var TrainList = React.createClass({
         rows.push(<Train station={""} line={train.Line} destination={train.Destination} minutes={train.Min} />);
       }
     });
-
     return (
       <tbody className="train-list">
         {rows}
@@ -94,16 +86,13 @@ var TrainList = React.createClass({
 });
 
 var WmataSchedule = React.createClass({
-   getInitialState: function() {
+  getInitialState: function() {
     return {data: [], line: "OR"};
   },
-
   sortTrainData: function(data) {
     var lineColor = this.state.line,
         stations  = WMATA[lineColor];
-
     data = data.filter(function(train) { return train["Line"] === lineColor });
-
     return data.sort(function(a,b) {
        if (stations.indexOf(a.LocationCode) - stations.indexOf(b.LocationCode) == 0) {
          return a.Destination.localeCompare(b.Destination);
@@ -113,11 +102,9 @@ var WmataSchedule = React.createClass({
        }
      });
   },
-
   loadTrainsFromServer: function() {
     var lineString = WMATA[this.state.line].join(",");
     var url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/" + lineString + " ?api_key=" + this.props.api_key;
-
     $.ajax({
       url: url,
       dataType: 'json',
@@ -130,16 +117,13 @@ var WmataSchedule = React.createClass({
       }.bind(this)
     });
   },
-
   handleClick: function(user_selected_line) {
     this.setState({line: user_selected_line}, this.loadTrainsFromServer);
   },
-
   componentDidMount: function() {
     this.loadTrainsFromServer();
     setInterval(this.loadTrainsFromServer, this.props.pollInterval);
   },
-
   render: function() {
     return (
       <div className='next-train-filterable'>
