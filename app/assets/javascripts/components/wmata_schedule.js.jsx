@@ -8,6 +8,8 @@ var WMATA = {
    RD: ["A15", "A14", "A13", "A12", "A11", "A10", "A09", "A08", "A07", "A06", "A05", "A04", "A03", "A02", "A01", "B01", "B02", "B03", "B35", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11"],
 };
 
+
+
 var FilterButton = React.createClass({
   handleClick: function(e) {
     e.preventDefault();
@@ -104,7 +106,7 @@ var WmataSchedule = React.createClass({
   },
   loadTrainsFromServer: function() {
     var lineString = WMATA[this.state.line].join(",");
-    var url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/" + lineString + " ?api_key=" + this.props.api_key;
+    var url = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/" + lineString + "?api_key=" + this.props.api_key;
     $.ajax({
       url: url,
       dataType: 'json',
